@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UBG & Proxy Awards</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    background:black;
+    color:#FFD700;
+    font-family:Arial, Helvetica, sans-serif;
+    text-align:center;
+}
+
+h1{
+    font-size:5rem;
+    margin-bottom:20px;
+    letter-spacing:4px;
+}
+
+h2{
+    font-size:1.8rem;
+    margin-bottom:30px;
+    color:#e6c200;
+}
+
+#countdown{
+    font-size:4rem;
+    font-weight:bold;
+    padding:20px 40px;
+    border:3px solid #FFD700;
+    border-radius:15px;
+    box-shadow:0 0 25px #FFD70044;
+}
+</style>
+</head>
+
+<body>
+
+<h1>DON'T LOOK AWAY</h1>
+<h2>The UBG & Proxy Awards will Start in:</h2>
+
+<div id="countdown">Loading...</div>
+
+<script>
+
+const eventDate = new Date("April 25, 2026 00:00:00").getTime();
+
+const timer = setInterval(function(){
+
+    const now = new Date().getTime();
+    const distance = eventDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("countdown").innerHTML =
+        days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+
+    if(distance < 0){
+        clearInterval(timer);
+        document.getElementById("countdown").innerHTML = "The Event Has Begun";
+    }
+
+},1000);
+
+</script>
+
+</body>
+</html>
