@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Panel</title>
+
+<style>
+body{
+background:black;
+color:#FFD700;
+font-family:Arial;
+text-align:center;
+padding-top:100px;
+}
+
+input{
+padding:10px;
+width:300px;
+font-size:16px;
+}
+
+button{
+padding:10px 20px;
+margin-top:10px;
+background:#FFD700;
+border:none;
+font-weight:bold;
+cursor:pointer;
+}
+</style>
+
+</head>
+<body>
+
+<h1>Admin Announcement Panel</h1>
+
+<input id="message" placeholder="Type announcement...">
+<br>
+<button onclick="sendMessage()">Send Global Message</button>
+
+<script>
+
+function sendMessage(){
+
+const msg = document.getElementById("message").value;
+
+localStorage.setItem("globalMessage", msg);
+
+alert("Announcement Sent!");
+
+}
+
+</script>
+
+</body>
+</html>
