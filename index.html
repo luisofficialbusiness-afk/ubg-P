@@ -56,10 +56,25 @@ h2{
     background:#e6c200;
     transform:scale(1.05);
 }
+
+    #announcement{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:#FFD700;
+    color:black;
+    text-align:center;
+    font-weight:bold;
+    padding:12px;
+    display:none;
+    z-index:1000;
+}
+    
 </style>
 </head>
 
 <body>
+    <div id="announcement"></div>
 
 <h1>DON'T LOOK AWAY</h1>
 <h2>The UBG & Proxy Awards will Start in:</h2>
@@ -95,6 +110,18 @@ const timer = setInterval(function(){
 },1000);
 
 </script>
+    
+<script>
 
+const announcement = localStorage.getItem("globalMessage");
+
+if(announcement){
+    const banner = document.getElementById("announcement");
+    banner.innerText = announcement;
+    banner.style.display = "block";
+}
+
+</script>
+    
 </body>
 </html>
